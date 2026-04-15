@@ -1,0 +1,57 @@
+print("Welcome This is my GitHub project")
+
+def obtener_datos():
+    nombre = input("Enter your name: ")
+    
+    while True:
+        try:
+            edad = int(input("Enter your age: "))
+            if edad < 0:
+                print("Age cannot be negative")
+            else:
+                break
+        except ValueError:
+            print("Please enter a valid number")
+    
+    return nombre, edad
+
+
+def calcular_datos(edad):
+    edad_5 = edad + 5
+    edad_10 = edad + 10
+    return edad_5, edad_10
+
+
+def mostrar_resultados(nombre, edad, edad_5, edad_10):
+    print("\n--- Results ---")
+    print(f"Hello {nombre}, you are {edad} years old.")
+    print(f"In 5 years you will be {edad_5}")
+    print(f"In 10 years you will be {edad_10}")
+
+    if edad >= 18:
+        print("You are an adult ")
+    else:
+        print("You are a minor ")
+
+
+def menu():
+    while True:
+        print("\n--- MENU ---")
+        print("1. Enter data")
+        print("2. Exit")
+
+        opcion = input("Choose an option: ")
+
+        if opcion == "1":
+            nombre, edad = obtener_datos()
+            edad_5, edad_10 = calcular_datos(edad)
+            mostrar_resultados(nombre, edad, edad_5, edad_10)
+
+        elif opcion == "2":
+            print("Exiting program...  Goodbye!")
+            break
+        else:
+            print("Invalid option")
+
+
+menu()
